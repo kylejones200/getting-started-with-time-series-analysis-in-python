@@ -10,7 +10,7 @@ Traditional parametric statistics assume the underlying data is stationary---tha
 
 Suppose you have a CSV file containing a time series with columns for date and observed values:
 
-**Example File** (`sales_data.csv`):
+Example File (`sales_data.csv`):
 
 date,sales 2023-01-01,150 2023-01-02,170 2023-01-03,160 2023-01-04,180
 
@@ -41,25 +41,23 @@ Resampling allows you to aggregate or disaggregate time series data to a differe
 
 - Upsample monthly data to daily using interpolation.
 
-**Downsampling Example: Daily to Monthly**
-
+Downsampling Example: Daily to Monthly
     # Resample to monthly frequency, taking the mean of sales
 monthly_sales = df.resample('M').mean() print(monthly_sales)
 
-**Upsampling Example: Monthly to Daily**
-
+Upsampling Example: Monthly to Daily
     # Upsample to daily frequency with linear interpolation
 daily_sales = monthly_sales.resample('D').interpolate(method='linear') print(daily_sales.head())
 
 ## Key Points to Remember
 
-- **Time Index:** Always convert and index your time series data using a datetime format to enable time-based operations.
+- Time Index: Always convert and index your time series data using a datetime format to enable time-based operations.
 
-- **Order Matters:** Never shuffle or rearrange time series data randomly.
+- Order Matters: Never shuffle or rearrange time series data randomly.
 
-- **Resampling:** Adjust the frequency of observations as needed for analysis or modeling.
+- Resampling: Adjust the frequency of observations as needed for analysis or modeling.
 
-- **Check for Missing Data:** Gaps in time series data can distort analysis and require imputation or handling.
+- Check for Missing Data: Gaps in time series data can distort analysis and require imputation or handling.
 
 ## Converting Data to a Time Series
 
@@ -75,7 +73,7 @@ ts = pd.Series(values, index=dates) ts.head()
 
 ## Resampling and Aggregation
 
-**Downsampling** reduces the frequency (e.g., daily to monthly), while **upsampling** increases it (e.g., monthly to daily).
+Downsampling reduces the frequency (e.g., daily to monthly), while upsampling increases it (e.g., monthly to daily).
 
     # Resample to monthly averages
 monthly_sales = ts.resample('M').mean()
@@ -100,14 +98,10 @@ ts.fillna(ts.mean())
 
 As a beekeeper, you install sensors in your hive to monitor its health. The data includes:
 
-- **Internal Temperature (°C)**
-
-- **Weight (kg) of the hive**
-
-- **Bee Traffic (number of bees entering/exiting per minute)**
-
-**Python Example:**
-
+- Internal Temperature (°C)
+- Weight (kg) of the hive
+- Bee Traffic (number of bees entering/exiting per minute)
+Python Example:
 import pandas as pd import numpy as np
 
     # Simulated beehive data
@@ -119,5 +113,5 @@ Time series analytics is essential for forecasting and decision-making in busine
 
 - Convert daily data to monthly averages.
 - Upsample monthly data to daily using interpolation.
-- **Time Index:** Always convert and index your time series data using a datetime format to enable time-based operations.
-- **Order Matters:** Never shuffle or rearrange time series data randomly.
+- Time Index: Always convert and index your time series data using a datetime format to enable time-based operations.
+- Order Matters: Never shuffle or rearrange time series data randomly.
